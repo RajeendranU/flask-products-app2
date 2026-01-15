@@ -51,14 +51,22 @@ jobs:
 
       - name: Build Docker image
         uses: docker/build-push-action@v5
+        id: build
         with:
           context: .
           push: false
+          load: true
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Verify image exists
+        run: |
+          echo "Verifying Docker image..."
+          docker images | grep ${{ env.IMAGE_NAME }} || echo "Image not found in local registry"
+          docker image inspect ${{ env.IMAGE_NAME }}:latest
 
       - name: Run code quality checks
         run: |

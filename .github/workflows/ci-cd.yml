@@ -87,7 +87,7 @@ jobs:
       - name: Run tests in Docker container
         run: |
           echo "Running pytest tests inside Docker container..."
-          docker run --rm ${{ env.IMAGE_NAME }}:latest pytest tests/test_app.py -v --tb=short
+          docker run --rm -e PYTHONPATH=/app ${{ env.IMAGE_NAME }}:latest pytest tests/test_app.py -v --tb=short
 
       - name: Test results summary
         if: always()

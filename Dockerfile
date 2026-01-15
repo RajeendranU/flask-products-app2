@@ -11,6 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy app.py
 COPY app.py .
 
+# Copy tests directory
+COPY tests/ tests/
+
 # Expose port 5002
 EXPOSE 5002
 

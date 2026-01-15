@@ -114,6 +114,19 @@ products_data = {
                 "screen_size": "15.6 inches",
                 "graphics": "NVIDIA RTX 4050"
             }
+        },
+        {
+            "id": 3,
+            "name": "HP Spectre x360",
+            "price": 1499.99,
+            "brand": "HP",
+            "specs": {
+                "processor": "Intel Core i7",
+                "ram": "16GB",
+                "storage": "512GB SSD",
+                "screen_size": "13.5 inches",
+                "graphics": "Intel Iris Xe"
+            }
         }
     ]
 }
